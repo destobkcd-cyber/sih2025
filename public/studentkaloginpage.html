@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Student Details</title>
+  <style>
+    .ripple { position:absolute; border-radius:50%; background:rgba(59,130,246,.10); transform:scale(0); animation:ripple-effect .3s linear; pointer-events:none; z-index:9999; }
+    @keyframes ripple-effect { to { transform:scale(1.6); opacity:0; } }
+    input[type="date"], input[type="tel"] { -webkit-appearance: none; appearance: none; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+  <main class="w-full max-w-md bg-white rounded-2xl shadow p-8">
+    <h1 class="text-2xl font-semibold text-gray-900 text-center">Student verification</h1>
+    <p class="text-gray-600 text-center mt-2">Enter date of birth and mobile number to continue.</p>
+
+    <form id="student-form" class="mt-8 space-y-5">
+      <div>
+        <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+        <input id="dob" name="dob" type="date" required class="mt-2 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none"/>
+      </div>
+
+      <div>
+        <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+        <input id="mobile" name="mobile" type="tel" inputmode="tel" pattern="[0-9]{10}" placeholder="10-digit number" required class="mt-2 w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none"/>
+        <p class="text-xs text-gray-500 mt-1">Enter a 10-digit mobile number.</p>
+      </div>
+
+      <button type="submit" class="w-full px-4 py-3 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-500">Continue</button>
+    </form>
+
+    <div id="result" class="hidden mt-6 p-4 rounded bg-indigo-50 text-indigo-700 text-sm"></div>
+
+    <div class="mt-6 text-center">
+      <a href="index.html" class="text-sm text-gray-600 hover:text-gray-800">Back to Home</a>
+    </div>
+  </main>
+
+  <script>
+    // Ripple
+    document.addEventListener('click', function (e) {
+      const target = e.target.closest('a, button, label');
+      if (!target) return;
+      const ripple = document.createElement('span');
+      const rect = target.getBoundingClientRect();
+      const base = Math.max(rect.width, rect.height) * 0.45;
+      ripple.classList.add('ripple');
+      ripple.style.width = base + 'px';
+      ripple.style.height = base + 'px';
+      ripple.style.left = (e.clientX - rect.left - base / 2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - base / 2) + 'px';
+      if (getComputedStyle(target).position === 'static') target.style.position = 'relative';
+      target.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 300);
+    });
+
+    // Simple client-side handling demo
+    document.getElementById('student-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const dob = document.getElementById('dob').value;
+      const mobile = document.getElementById('mobile').value;
+      const out = document.getElementById('result');
+      // Placeholder  backend me krna he
+      out.textContent = 'Details captured. DOB: ' + dob + ', Mobile: ' + mobile.replace(/(\\d{3})(\\d{3})(\\d{4})/, '$1-$2-$3');
+      out.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

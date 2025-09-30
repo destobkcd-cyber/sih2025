@@ -1,0 +1,227 @@
+body{
+    margin: 0px 0px 150px 0px;
+    padding:0;
+    height: 1200px;
+    font-family: "Roboto", "Arial", sans-serif;
+}   
+h1 img{
+    height: 80px;
+    width: 80px;
+    margin-left: 50px;
+    padding: 5px 0px 5px 0px;
+}
+h1{
+    border: 0.5px solid rgb(212, 198, 198);
+    display: flex;
+    padding: 0px 10px 0px 10px;
+}
+.logo-discription{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12px;
+    height: 30px;
+    width: 130px;
+    background-color: rgb(236, 229, 229);
+    margin: auto 0px auto 10px;
+    border-radius: 5px;
+}
+/* Push the FIRST description box all the way to the right */
+.logo-discription:first-of-type {
+    margin-left: auto;
+}
+.main-heading-description{
+    color:rgb(134, 134, 134);
+    font-size: 15px;
+}
+
+.main{
+    margin: auto;
+}
+.main-heading{
+    width: 90%;
+    margin: auto;
+}
+.portal{
+    margin-top: 50px;
+    display: flex;
+    border: 1px solid black;
+    background-color: rgb(228, 225, 225);
+    border-radius: 20px;
+    height: 40px;
+}
+/* margin:20px; */
+.portals{
+    height: 30px;
+    display: flex;                /* make it a flex container */
+    border: 1px;
+    width: 450px;
+    /* justify-content:center; */
+    margin: auto;
+    text-align:center;
+    align-items:center;
+    border-radius: 20px;
+    justify-content: center;      /* center horizontally */
+    background-color: white; /* optional, for clarity */
+    gap: 15px;
+    
+}
+.cards{
+    display: flex;
+    align-items: center;
+    margin: 80px 0px;
+    gap: 40px;
+    height: 50px;
+}
+/* .data-cards{
+    color: rgb(83, 83, 83);
+    height: 100px;
+    width: 440px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.data-cards p{
+    font-weight: bold;
+    color:black;
+    font-size: 30px;
+} */
+/* .data-cards {
+    color: rgb(83, 83, 83);
+    height: 100px;
+    width: 440px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;  
+    justify-content: center; 
+    align-items: center;  
+}
+
+.data-cards img {
+    height: 50px;
+}
+
+.data-cards p {
+    font-weight: bold;
+    color: black;
+    font-size: 30px;
+    margin: 5px 0 0 0;  
+} */
+.data-cards {
+    color: rgb(83, 83, 83);
+    height: 100px;
+    width: 440px;
+    border: 1px solid black;
+    border-radius: 10px;
+    /* box-shadow:#adbdcf; */
+
+    display: flex;
+    align-items: center;   /* vertically align icon + text block */
+    gap: 15px;             /* space between icon and text */
+    padding: 10px;
+}
+
+.data-cards img {
+    height: 50px;
+    width: 50px;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;   /* stack label and number */
+    justify-content: center;
+}
+
+.card-text p {
+    font-weight: bold;
+    color: black;
+    font-size: 30px;
+    margin: 5px 0 0 0;
+}
+
+.certificates{
+    margin: auto;
+    border: 1px solid black;
+    padding: 20px;
+    height: 500px;
+    border-radius: 10px;
+}
+.my-certificates p{
+    color: rgb(83, 83, 83);
+}
+
+.searchbox {
+  padding-left: 30px; /* leave space for the icon */
+  background: url("https://cdn-icons-png.flaticon.com/512/622/622669.png") no-repeat 8px center;
+  background-size: 16px;
+  height: 30px;
+  width: 90%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 20px 0px 20px 0px;
+}
+.show-certificate{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+.show-card {
+  display: flex;
+  justify-content: space-between; /* push info left, buttons right */
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px; /* spacing between buttons */
+}
+
+.card-actions button {
+  padding: 5px 12px;
+  border: 1px solid #2c2c2d;
+  border-radius: 5px;
+  background-color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.card-actions button:hover {
+    background-color: #adbdcf; /* darker blue on hover */
+}
+.verification{
+    margin: 50px 0px 0px;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.certificate-id {
+    padding-left: 30px;
+    background-size: 16px;
+    height: 30px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 20px 0px 20px 0px;
+}
+.verification button {
+    padding: 5px 12px;
+    border: 1px solid #2c2c2d;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+}
+.verification button:hover {
+    background-color: #adbdcf; /* darker blue on hover */
+}

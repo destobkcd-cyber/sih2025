@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pramaan - Certificate Management System</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    .ripple { position:absolute; border-radius:50%; background:rgba(59,130,246,.10); transform:scale(0); animation:ripple-effect .3s linear; pointer-events:none; z-index:9999; }
+    @keyframes ripple-effect { to { transform:scale(1.6); opacity:0; } }
+
+    
+    .menu-panel { display: none; }
+    .menu-open #menuPanel { display: block; }
+    .features-open #featuresPanel { display: block; }
+
+    .block-item { opacity:0; transform:translateY(12px) scale(.98); animation:block-fall 420ms ease-out forwards; }
+    .block-item:nth-child(1){ animation-delay:40ms; }
+    .block-item:nth-child(2){ animation-delay:90ms; }
+    @keyframes block-fall { 0%{opacity:0;transform:translateY(12px) scale(.98);} 60%{opacity:1;transform:translateY(2px) scale(1);} 100%{opacity:1;transform:translateY(0) scale(1);} }
+
+    
+    .modal-overlay { position:fixed; inset:0; background:rgba(17,24,39,0.55); display:none; align-items:center; justify-content:center; z-index:50; }
+    .modal-open .modal-overlay { display:flex; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+
+  
+  <header class="bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="Gemini_Generated_Image_bmxtibbmxtibbmxt.jpg" alt="Pramaan logo" class="w-10 h-10 rounded-xl object-contain bg-white p-1"/>
+        <div>
+          <div class="text-lg font-semibold">Pramaan</div>
+          <div class="text-xs text-gray-500">Blockchain Powered Anti-Fraud System</div>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        
+        <div class="relative">
+          <button id="featuresToggle" class="px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200">Features</button>
+          <div id="featuresPanel" class="menu-panel absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+            <div class="p-2 space-y-2">
+              <a href="#bitcoin" class="block-item block px-4 py-3 rounded-lg hover:bg-indigo-50 text-gray-800">Bitcoin</a>
+              <a href="#blockchain" class="block-item block px-4 py-3 rounded-lg hover:bg-indigo-50 text-gray-800">Blockchain</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#how-it-works" class="text-gray-700 hover:text-indigo-600">How it works</a>
+
+        
+        <div class="relative">
+          <button id="menuToggle" class="px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200">Menu</button>
+          <div id="menuPanel" class="menu-panel absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+            <div class="p-2 space-y-2">
+              <a href="#services" class="block-item block px-4 py-3 rounded-lg hover:bg-indigo-50 text-gray-800">Services</a>
+              <a href="#help" class="block-item block px-4 py-3 rounded-lg hover:bg-indigo-50 text-gray-800">Help</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  
+  <section class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold leading-tight">Certificate Management System</h1>
+          <p class="mt-4 text-gray-600">Secure, transparent, and verifiable certificate issuance and management powered by Web3 technology.</p>
+          <div class="mt-6 flex gap-3">
+            <a href="#login" class="px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500">Get Started</a>
+            <a href="#features" class="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200">Learn More</a>
+          </div>
+        </div>
+        <div class="bg-indigo-50 rounded-2xl p-8">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 bg-white rounded-xl shadow-sm">
+              <div class="text-sm font-medium text-indigo-600">Tamper-proof</div>
+              <div class="text-gray-600 text-sm mt-1">Immutable certificates on-chain</div>
+            </div>
+            <div class="p-4 bg-white rounded-2xl shadow-sm">
+              <div class="text-sm font-medium text-indigo-600">Instant Verify</div>
+              <div class="text-gray-600 text-sm mt-1">QR and hash verification</div>
+            </div>
+            <div class="p-4 bg-white rounded-2xl shadow-sm">
+              <div class="text-sm font-medium text-indigo-600">Privacy-first</div>
+              <div class="text-gray-600 text-sm mt-1">Encrypted PII flows</div>
+            </div>
+            <div class="p-4 bg-white rounded-2xl shadow-sm">
+              <div class="text-sm font-medium text-indigo-600">Interoperable</div>
+              <div class="text-gray-600 text-sm mt-1">Open standards & APIs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <section id="login" class="py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold mb-6">Login Options</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        
+        <div class="bg-white rounded-2xl shadow p-8 hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-indigo-600 mb-4">Student Login</h3>
+          <p class="text-gray-600 mb-6">Access and download verified digital certificates securely.</p>
+          <button id="openStudentLogin" class="block w-full px-4 py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-500">Login</button>
+        </div>
+
+        
+        <div class="bg-white rounded-2xl shadow p-8 hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-indigo-600 mb-4">Institutional Panel</h3>
+          <p class="text-gray-600 mb-6">Issue and manage student certificates with audit trails.</p>
+          <a href="institution-panel.html" class="block w-full px-4 py-2 rounded-lg bg-gray-900 text-white font-medium hover:bg-gray-800">Open</a>
+        </div>
+
+       
+        <div class="bg-white rounded-2xl shadow p-8 hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-indigo-600 mb-4">Regulation Center</h3>
+          <p class="text-gray-600 mb-6">Review and verify institutional compliance and datasets.</p>
+          <a href="./regulation-panel.html" class="block w-full px-4 py-2 rounded-lg bg-gray-900 text-white font-medium hover:bg-gray-800">Open</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="bitcoin" class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold mb-4">Bitcoin</h2>
+      <p class="text-gray-600">Placeholder section for Bitcoin-related information.</p>
+    </div>
+  </section>
+
+  
+  <section id="blockchain" class="py-16 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold mb-4">Blockchain</h2>
+      <p class="text-gray-600">Placeholder section for Blockchain-related information.</p>
+    </div>
+  </section>
+
+  
+  <section id="services" class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold mb-4">Services</h2>
+      <p class="text-gray-600">Issue, manage, and verify certificates with blockchain-backed integrity and open APIs.</p>
+    </div>
+  </section>
+
+  
+  <section id="help" class="py-16 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold mb-4">Help</h2>
+      <p class="text-gray-600">Guidance on logging in, verifying certificates, and contacting support.</p>
+    </div>
+  </section>
+
+  
+  <div id="studentLoginModal" class="modal-overlay">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-6 mx-4">
+      <div class="flex items-start justify-between">
+        <h3 class="text-xl font-semibold">Student Login</h3>
+        <button id="closeStudentLogin" class="text-gray-500 hover:text-gray-700" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <p class="mt-1 text-gray-600">Enter date of birth and mobile number to continue.</p>
+
+      <form id="studentLoginForm" class="mt-6 space-y-4" novalidate>
+        <div>
+          <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+          <input id="dob" name="dob" type="date" required class="mt-2 w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+          <p id="dobError" class="mt-1 text-sm text-red-600 hidden">Please enter a valid date of birth.</p>
+        </div>
+        <div>
+          <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+          <input id="mobile" name="mobile" type="tel" inputmode="numeric" pattern="^[0-9]{10}$" placeholder="10-digit number" required class="mt-2 w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"/>
+          <p class="mt-1 text-xs text-gray-500">Digits only, 10 characters.</p>
+          <p id="mobileError" class="mt-1 text-sm text-red-600 hidden">Enter a 10-digit mobile number (digits only).</p>
+        </div>
+        <div class="flex gap-3 pt-2">
+          <button type="submit" class="px-4 py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-500">Login</button>
+          <button type="button" id="cancelStudentLogin" class="px-4 py-2 rounded-lg bg-gray-100 text-gray-900 hover:bg-gray-200">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="border-t border-gray-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-gray-600">© 2025 Pramaan. All rights reserved.</p>
+        <div class="flex items-center gap-4 text-sm">
+          <a href="#" class="text-gray-600 hover:text-indigo-600">Privacy</a>
+          <a href="#" class="text-gray-600 hover:text-indigo-600">Terms</a>
+          <a href="#help" class="text-gray-600 hover:text-indigo-600">Support</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Ripple effect
+    document.addEventListener('click', function(e) {
+      const btn = e.target.closest('button, a');
+      if (!btn) return;
+      const ripple = document.createElement('span');
+      const rect = btn.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      ripple.className = 'ripple';
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+      btn.style.position = 'relative';
+      btn.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 320);
+    });
+
+    // Helpers for dropdowns: ensure only one is open
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel  = document.getElementById('menuPanel');
+    const featuresToggle = document.getElementById('featuresToggle');
+    const featuresPanel  = document.getElementById('featuresPanel');
+
+    function closeAllMenus() {
+      document.body.classList.remove('menu-open', 'features-open');
+    }
+    function toggleMenu(e) {
+      e.stopPropagation();
+      const isOpen = document.body.classList.contains('menu-open');
+      closeAllMenus();
+      if (!isOpen) document.body.classList.add('menu-open');
+    }
+    function toggleFeatures(e) {
+      e.stopPropagation();
+      const isOpen = document.body.classList.contains('features-open');
+      closeAllMenus();
+      if (!isOpen) document.body.classList.add('features-open');
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    featuresToggle.addEventListener('click', toggleFeatures);
+
+    // Outside click closes both
+    document.addEventListener('click', (e) => {
+      if (!menuPanel.contains(e.target) && e.target !== menuToggle &&
+          !featuresPanel.contains(e.target) && e.target !== featuresToggle) {
+        closeAllMenus();
+      }
+    });
+
+    // Escape closes both
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllMenus(); });
+
+    // Modal controls
+    const openBtn = document.getElementById('openStudentLogin');
+    const closeBtn = document.getElementById('closeStudentLogin');
+    const cancelBtn = document.getElementById('cancelStudentLogin');
+    const modal = document.getElementById('studentLoginModal');
+    function openModal(){ document.body.classList.add('modal-open'); modal.classList.add('flex'); }
+    function closeModal(){ document.body.classList.remove('modal-open'); modal.classList.remove('flex'); }
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    
+    const form = document.getElementById('studentLoginForm');
+    const dob = document.getElementById('dob');
+    const mobile = document.getElementById('mobile');
+    const dobError = document.getElementById('dobError');
+    const mobileError = document.getElementById('mobileError');
+
+    function validateDOB(value) {
+      if (!value) return false;
+      const d = new Date(value);
+      const now = new Date();
+      if (isNaN(d.getTime())) return false;
+      if (d > now) return false;
+      const minAgeDate = new Date(now.getFullYear() - 10, now.getMonth(), now.getDate());
+      return d <= minAgeDate;
+    }
+    function validateMobile(value) { return /^[0-9]{10}$/.test(value); }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      dobError.classList.add('hidden');
+      mobileError.classList.add('hidden');
+
+      let ok = true;
+      if (!validateDOB(dob.value)) { dobError.classList.remove('hidden'); ok = false; }
+      if (!validateMobile(mobile.value)) { mobileError.classList.remove('hidden'); ok = false; }
+      if (!ok) return;
+
+      const payload = { dob: dob.value, mobile: mobile.value.trim() };
+      try {
+        const res = await fetch('/api/student/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.message || 'Login failed');
+        }
+        window.location.href = '/student/dashboard';
+      } catch (err) {
+        alert(err.message || 'Unable to login. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Certificate Processing</title>
+  <style>
+    /* Rotate hone wala block */
+    .spinner { width:80px; height:80px; position:relative; perspective:480px; margin:0 auto; }
+    .cube { width:100%; height:100%; position:absolute; transform-style:preserve-3d; animation:rotate-cube 1.2s linear infinite; }
+    .face { position:absolute; width:80px; height:80px; background:linear-gradient(135deg,#3b82f6,#6366f1); border-radius:12px; box-shadow:0 10px 24px rgba(59,130,246,.25); transform:translateZ(40px); opacity:.95; }
+    @keyframes rotate-cube { 0%{transform:rotateX(0) rotateY(0);} 50%{transform:rotateX(180deg) rotateY(0);} 100%{transform:rotateX(180deg) rotateY(180deg);} }
+
+    /* Ripple */
+    .ripple { position:absolute; border-radius:50%; background:rgba(59,130,246,.10); transform:scale(0); animation:ripple-effect .3s linear; pointer-events:none; z-index:9999; }
+    @keyframes ripple-effect { to { transform:scale(1.6); opacity:0; } }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+  <main class="text-center px-6">
+    <div class="spinner">
+      <div class="cube">
+        <div class="face"></div>
+      </div>
+    </div>
+    <p class="mt-6 text-lg text-gray-700">your certificate is under process.</p>
+    <a href="index.html" class="inline-block mt-6 px-5 py-2 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-500">Back to site</a>
+  </main>
+
+  <script>
+    // Minimal ripple on click
+    document.addEventListener('click', function (e) {
+      const target = e.target.closest('a, button, div, h1, h2, h3, p');
+      if (!target) return;
+      const ripple = document.createElement('span');
+      const rect = target.getBoundingClientRect();
+      const base = Math.max(rect.width, rect.height) * 0.45;
+      ripple.classList.add('ripple');
+      ripple.style.width = base + 'px';
+      ripple.style.height = base + 'px';
+      ripple.style.left = (e.clientX - rect.left - base / 2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - base / 2) + 'px';
+      if (getComputedStyle(target).position === 'static') target.style.position = 'relative';
+      target.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 300);
+    });
+  </script>
+</body>
+</html>
