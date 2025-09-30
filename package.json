@@ -1,0 +1,17 @@
+{
+  "name": "sih",
+  "version": "1.0.0",
+  "description": "sih 2025 ",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "keywords": [
+    "sih"
+  ],
+  "author": "ankit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
